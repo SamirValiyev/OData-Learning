@@ -1,0 +1,6 @@
+@OData_Learning_HostAddress = http://localhost:5046
+
+GET {{OData_Learning_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
