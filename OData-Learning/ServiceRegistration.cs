@@ -8,6 +8,7 @@ namespace OData_Learning
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection serviceCollection)
         {
+         
             serviceCollection.AddScoped<IStudentService, StudentService>();
             return serviceCollection;
         }
