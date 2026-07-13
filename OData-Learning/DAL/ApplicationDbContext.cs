@@ -7,11 +7,17 @@ namespace OData_Learning.DAL
     {
         public DbSet<Grade> Grades { get; set; }
         public DbSet<Student> Students { get; set; }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
-            base.OnConfiguring(optionsBuilder);
+
+            modelBuilder.Entity<Grade>().HasMany(x=>x.Students)
+                                        .WithOne(x=>x.Grade)
+                                        .HasForeignKey(x=>x.GradeId);    
+            base.OnModelCreating(modelBuilder);
         }
+
+
 
     }
 }
