@@ -1,10 +1,17 @@
+using Microsoft.AspNetCore.OData;
 using OData_Learning;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+                .AddOData(cfg =>
+                {
+                    //cfg.Select().Filter().OrderBy(); //istenilen data emeliyyati
+                    cfg.EnableQueryFeatures(); //bu ise butun data emeliyyatlarini eyni anda aktiv edir.
+
+                });
 builder.Services.AddApplicationServices(builder.Configuration);
 
 
