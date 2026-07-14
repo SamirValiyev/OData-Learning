@@ -17,7 +17,5 @@ namespace OData_Learning.DAL
             base.OnModelCreating(modelBuilder);
         }
 
-
-
     }
 }
