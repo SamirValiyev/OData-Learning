@@ -76,7 +76,6 @@ namespace OData_Learning.Services.Concrete
         }
     };
 
-
 };
 
 
