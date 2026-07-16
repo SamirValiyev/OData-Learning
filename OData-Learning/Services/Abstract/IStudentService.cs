@@ -9,5 +9,6 @@ namespace OData_Learning.Services.Abstract
         public IEnumerable<Student> GetStudents();
         public IEnumerable<StudentDTO> GetAllStudentsFilter();
         public Student GetStudentsById(int id);
+        public IEnumerable<Student> GetStudentGrade();
     }
 }

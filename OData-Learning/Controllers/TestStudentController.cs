@@ -37,5 +37,14 @@ namespace OData_Learning.Controllers
             var students = studentService.GetStudents();
             return Ok(students);
         }
+
+
+        [HttpGet]
+        [EnableQuery]
+        public async Task<IActionResult> GetStudentsWithGrade()
+        {
+            var students = studentService.GetStudents();
+            return Ok(students);
+        }
     }
 }

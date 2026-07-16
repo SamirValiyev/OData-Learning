@@ -1,4 +1,5 @@
-﻿using OData_Learning.DAL;
+﻿using Microsoft.EntityFrameworkCore;
+using OData_Learning.DAL;
 using OData_Learning.DTOs;
 using OData_Learning.Entities;
 using OData_Learning.Services.Abstract;
@@ -93,6 +94,12 @@ namespace OData_Learning.Services.Concrete
         {
            var students = context.Students.ToList();
             return students;
+        }
+
+        public IEnumerable<Student> GetStudentGrade() 
+        {
+            var studentGrades = context.Students.Include(s => s.Grade).ToList();
+            return studentGrades;
         }
 
         public Student GetStudentsById(int id)
