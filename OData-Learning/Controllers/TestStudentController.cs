@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.OData.Query;
 using OData_Learning.Services.Abstract;
 
 namespace OData_Learning.Controllers
@@ -30,6 +31,7 @@ namespace OData_Learning.Controllers
         }
 
         [HttpGet]
+        [EnableQuery]
         public async Task<IActionResult> GetStudents()
         {
             var students = studentService.GetStudents();

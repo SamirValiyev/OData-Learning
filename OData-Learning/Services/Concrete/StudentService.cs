@@ -1,4 +1,5 @@
 ﻿using OData_Learning.DAL;
+using OData_Learning.DTOs;
 using OData_Learning.Entities;
 using OData_Learning.Services.Abstract;
 
@@ -76,9 +77,9 @@ namespace OData_Learning.Services.Concrete
             };
         }
 
-        public  IEnumerable<Student> GetAllStudentsFilter()
+        public  IEnumerable<StudentDTO> GetAllStudentsFilter()
         {
-            var students = context.Students.Select(s => new Student
+            var students = context.Students.Select(s => new StudentDTO
             {
                 Id=s.Id,
                 FirstName=s.FirstName,
