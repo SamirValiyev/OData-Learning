@@ -15,5 +15,25 @@ namespace OData_Learning.Controllers
             return Ok(students);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetAllStudentsFilter()
+        {
+            var students = studentService.GetAllStudentsFilter();
+            return Ok(students);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetStudentsById(int id)
+        {
+            var student = studentService.GetStudentsById(id);
+            return Ok(student);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetStudents()
+        {
+            var students = studentService.GetStudents();
+            return Ok(students);
+        }
     }
 }

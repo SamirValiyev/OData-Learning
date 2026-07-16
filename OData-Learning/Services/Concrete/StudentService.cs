@@ -1,9 +1,10 @@
-﻿using OData_Learning.Entities;
+﻿using OData_Learning.DAL;
+using OData_Learning.Entities;
 using OData_Learning.Services.Abstract;
 
 namespace OData_Learning.Services.Concrete
 {
-    public class StudentService : IStudentService
+    public class StudentService(ApplicationDbContext context) : IStudentService
     {
         public IEnumerable<Student> GetAllStudents()
         {
@@ -74,8 +75,31 @@ namespace OData_Learning.Services.Concrete
                 }
             };
         }
-    };
 
+        public  IEnumerable<Student> GetAllStudentsFilter()
+        {
+            var students = context.Students.Select(s => new Student
+            {
+                Id=s.Id,
+                FirstName=s.FirstName,
+                EmailAddress=s.EmailAddress
+            }).ToList();
+
+            return students;
+        }
+
+        public IEnumerable<Student> GetStudents()
+        {
+           var students = context.Students.ToList();
+            return students;
+        }
+
+        public Student GetStudentsById(int id)
+        {
+            var student=context.Students.FirstOrDefault(s=>s.Id == id);
+            return student;
+        }
+    };
 
 };
 

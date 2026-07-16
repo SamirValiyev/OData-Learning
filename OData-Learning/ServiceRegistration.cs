@@ -17,6 +17,7 @@ namespace OData_Learning
             });
          
             serviceCollection.AddScoped<IStudentService, StudentService>();
+            serviceCollection.AddScoped<IGradeService, GradeService>();
             return serviceCollection;
         }
     }
