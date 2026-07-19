@@ -43,7 +43,7 @@ namespace OData_Learning.Controllers
         [EnableQuery]
         public async Task<IActionResult> GetStudentsWithGrade()
         {
-            var students = studentService.GetStudents();
+            var students = studentService.GetStudentGrade();
             return Ok(students);
         }
     }
