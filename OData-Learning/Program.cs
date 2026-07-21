@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.OData;
 using OData_Learning;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers()
+                .AddJsonOptions(x=> x.JsonSerializerOptions.ReferenceHandler=ReferenceHandler.IgnoreCycles)
                 .AddOData(cfg =>
                 {
                     //cfg.Select().Filter().OrderBy(); //istenilen data emeliyyati
@@ -31,6 +33,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.MapGet("/", context =>
+{
+    context.Response.Redirect("/swagger");
+    return Task.CompletedTask;
+});
 
 app.UseHttpsRedirection();
 
